@@ -23,7 +23,7 @@ def get_data(inqryBgnDt, inqryEndDt):
     Result_all =pd.DataFrame()
     nnn = 0
     while True:
-        URL = f"{EndPoint}/{info_version}&indstrytyCd={indstrytyCd}&prtcptLmtRgnCd={region}&presmptPrceBgn={presmptPrceBgn}&presmptPrceEnd={presmptPrceEnd}&numOfRows={NumOfRows}&pageNo={PageNo}&inqryBgnDt={inqryBgnDt}&inqryEndDt={inqryEndDt}&ServiceKey={ServiceKey}&type={Datatype}"
+        URL = f"{EndPoint}/{info_version}&indstrytyCd={indstrytyCd}&prtcptLmtRgnCd={region}&presmptPrceBgn={presmptPrceBgn}&presmptPrceEnd={presmptPrceEnd}&numOfRows={NumOfRows}&pageNo={PageNo}&inqryBgnDt={inqryBgnDt}0000&inqryEndDt={inqryEndDt}2359&ServiceKey={ServiceKey}&type={Datatype}"
         response = requests.get(URL)
         
         # 총 데이터 개수
@@ -106,11 +106,8 @@ def main():
     st.title("개찰완료 데이터 조회")
 
     # User inputs for the start and end dates
-    inqryBgnDt_pre = st.text_input("시작 일자 (YYYYMMDD):", "20230101")
-    inqryEndDt_pre = st.text_input("종료 일자 (YYYYMMDD):", "20230131")
-
-    inqryBgnDt = str(inqryBgnDt_pre) + str(0000)
-    inqryEndDt = str(inqryEndDt_pre) + str(2359)
+    inqryBgnDt = st.text_input("시작 일자 (YYYYMMDD):", "20230101")
+    inqryEndDt = st.text_input("종료 일자 (YYYYMMDD):", "20230131")
 
     # Button to fetch the data
     if st.button("조회하기"):
