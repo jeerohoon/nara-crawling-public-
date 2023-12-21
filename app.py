@@ -1,5 +1,3 @@
-!pip install streamlit
-!pip install openpyxl
 
 import streamlit as st
 
