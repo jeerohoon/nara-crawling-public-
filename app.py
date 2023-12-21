@@ -109,8 +109,8 @@ def main():
     inqryBgnDt_pre = st.text_input("시작 일자 (YYYYMMDD):", "20230101")
     inqryEndDt_pre = st.text_input("종료 일자 (YYYYMMDD):", "20230131")
 
-    inqryBgnDt = inqryBgnDt_pre + str(0000)
-    inqryEndDt = inqryEndDt_pre + str(2359)
+    inqryBgnDt = str(inqryBgnDt_pre) + str(0000)
+    inqryEndDt = str(inqryEndDt_pre) + str(2359)
 
     # Button to fetch the data
     if st.button("조회하기"):
