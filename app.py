@@ -102,11 +102,14 @@ def get_details(bidNtceNo):
 
 # Streamlit application
 def main():
-    st.title("입찰공고 데이터 조회")
+    st.title("개찰완료 데이터 조회")
 
     # User inputs for the start and end dates
-    inqryBgnDt = st.text_input("시작 일시 (YYYYMMDDHHMM):", "202301010000")
-    inqryEndDt = st.text_input("종료 일시 (YYYYMMDDHHMM):", "202301312359")
+    inqryBgnDt_pre = st.text_input("시작 일자 (YYYYMMDD):", "20230101")
+    inqryEndDt_pre = st.text_input("종료 일자 (YYYYMMDD):", "20230131")
+
+    inqryBgnDt = inqryBgnDt_pre + str(0000)
+    inqryEndDt = inqryEndDt_pre + str(2359)
 
     # Button to fetch the data
     if st.button("조회하기"):
