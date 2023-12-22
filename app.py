@@ -84,7 +84,7 @@ def get_details(bidNtceNo):
         result_detail_df = result_detail_df[selected_columns].copy()  # 데이터프레임의 복사본 생성
         
         # 열 이름 변경
-        result_detail_df.rename(columns={"bidNtceOrd": "입찰공고차수", "rbidNo": "재입찰번호", 
+        result_detail_df.rename(columns={"bidNtceNo": "공고번호", "bidNtceOrd": "입찰공고차수", "rbidNo": "재입찰번호", 
                                          "rlOpengDt": "실개찰일시", "plnprc": "예정가격", "bssamt": "기초금액", 
                                          "bsisPlnprc": "기초예정가격", "PrearngPrcePurcnstcst": "예정가격순공사비"}, inplace=True)
         
@@ -123,7 +123,7 @@ def main():
                 result_detail_final = pd.concat([result_detail_final, temp], axis=0)
 
             # Merge the results
-            result_all = result_all.merge(result_detail_final, on='bidNtceNo', how='left')
+            result_all = result_all.merge(result_detail_final, on='공고번호', how='left')
 
             # Convert the final result to a bytes object
             towrite = BytesIO()
