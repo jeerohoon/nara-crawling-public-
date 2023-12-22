@@ -96,7 +96,7 @@ def get_details(bidNtceNo):
         PageNo=str(int(PageNo)+1)
     
     
-    Result_detail_unique = Result_detail.drop_duplicates(subset=['bidNtceNo'])
+    Result_detail_unique = Result_detail.drop_duplicates(subset=['공고번호'])
 
     return Result_detail_unique
 
@@ -118,7 +118,7 @@ def main():
 
             # Fetch the details for each unique bid number
             result_detail_final = pd.DataFrame()
-            for i in result_all["bidNtceNo"].unique():
+            for i in result_all["공고번호"].unique():
                 temp = get_details(i)
                 result_detail_final = pd.concat([result_detail_final, temp], axis=0)
 
